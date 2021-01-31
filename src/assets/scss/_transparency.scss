@@ -1,0 +1,31 @@
+// Opacity
+
+@mixin navbar-color($color) {
+  background-color: $color;
+}
+
+@mixin light-form() {
+  border-radius: 0;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  // IE8 filter
+  $opacity-ie: ($opacity * 100);
+  filter: #{alpha(opacity=$opacity-ie)};
+}
+
+@mixin black-filter($opacity) {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(17, 17, 17, $opacity);
+  display: block;
+  content: "";
+  z-index: 1;
+}
